@@ -1,0 +1,170 @@
+<h2 mat-dialog-title>{{employee.contactName}}</h2>
+ <div mat-dialog-content>
+  <h3 class="sectionTitle">Basic Info</h3>
+  <mat-grid-list cols="12" rowHeight="55px">
+    <mat-grid-tile rowspan="2">
+      <mat-icon class="gridItemsTop">person</mat-icon>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="10">
+      <mat-form-field class="gridInfo">
+        <mat-label>Full Name</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile colspan="10">
+      <mat-form-field class="gridInfo">
+        <mat-label>Preferred Name</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>
+      <mat-icon class="gridItems">credit_card</mat-icon>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="10">
+      <mat-form-field class="gridInfo">
+        <mat-label>Social Security Number</mat-label>
+        <input [type]="ssnIsVisible" matInput>
+        <mat-icon matSuffix (click)="changeVisible()" class="clickable">remove_red_eye</mat-icon>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>
+      <mat-icon class="gridItems">cake</mat-icon>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="10">
+      <mat-form-field class="gridInfo">
+        <mat-label>Birthday</mat-label>
+        <input type="date" matInput>
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <h3 class="sectionTitle">Addresses</h3>
+  <mat-grid-list cols="12" rowHeight="55px">
+    <mat-grid-tile rowspan="5">
+      <mat-icon class="gridItemsTop">place</mat-icon>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="10">
+      <mat-form-field class="gridInfo">
+        <mat-label>Street Address 1</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-icon color="primary" class="clickable">control_point</mat-icon>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="10">
+      <mat-form-field class="gridInfo">
+        <mat-label>Street Address 2</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile colspan="10">
+      <mat-form-field class="gridInfo">
+        <mat-label>City</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile colspan="5">
+      <mat-form-field class="gridInfo">
+        <mat-label>State</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="5">
+      <mat-form-field class="gridInfo">
+        <mat-label>Zip</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile colspan="10">
+      <mat-form-field class="gridInfo">
+        <mat-label>Address Type</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let address of addresses">
+            {{address.value}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+  </mat-grid-list>
+
+  <h3 class="sectionTitle">Contact Info</h3>
+  <mat-grid-list cols="12" rowHeight="55px">
+    <mat-grid-tile>
+      <mat-icon class="gridItems">mail</mat-icon>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="5">
+      <mat-form-field class="gridInfo">
+        <mat-label>Email Address</mat-label>
+        <input type="email" matInput>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="5">
+      <mat-form-field class="gridInfo">
+        <mat-label>Address Type</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let address of addresses">
+            {{address.value}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-icon color="primary" class="clickable">control_point</mat-icon>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-icon class="gridItems">phone</mat-icon>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="5">
+      <mat-form-field class="gridInfo">
+        <mat-label>Phone Number</mat-label>
+        <input type="tel" matInput>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="5">
+      <mat-form-field class="gridInfo">
+        <mat-label>Number Type</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let address of addresses">
+            {{address.value}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-icon color="primary" class="clickable">control_point</mat-icon>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <h3 class="sectionTitle">Legal Info</h3>
+  <mat-grid-list cols="12"  rowHeight="120px">
+    <mat-grid-tile>
+      <mat-icon class="gridItemsTop">wc</mat-icon>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="11">
+      <div class="gridInfo">
+      <label id="example-radio-group-label">Legal Gender</label>
+      <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+        <mat-radio-button class="example-radio-button" color="primary">
+          Male
+        </mat-radio-button>
+        <mat-radio-button class="example-radio-button" color="primary">
+          Female
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button mat-dialog-close>Save</button>
+</mat-dialog-actions>

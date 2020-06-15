@@ -1,0 +1,140 @@
+<div class="container">
+  <mat-card>
+    <mat-grid-list cols="5" rowHeight="140px">
+      <mat-grid-tile >
+        <img src="https://www.zyloware.com/images/Square-Shaped-Face.png" alt="" class="profilePic">
+        <div class="overlay">
+          <div class="overlayText">
+            <mat-icon color="accent">edit</mat-icon>
+          </div>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4">
+        <div class="gridInfo">
+          <h3>{{employee.contactName}}</h3>
+          <p>Northwest National Bank</p>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <h2 class="sectionTitle">Basic Info</h2>
+    <mat-grid-list cols="5" rowHeight="40px">
+      <mat-grid-tile >
+        <p class="gridItems">Full Name</p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4">
+        <p class="gridInfo">{{employee.contactName}}</p>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <p class="gridItems">Preferred Name</p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4">
+        <p class="gridInfo">{{employee.preferredName}}</p>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <p class="gridItems">Social Security Number</p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4">
+        <p class="gridInfo">{{employee.maskedSocialSecurity}}</p>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <p class="gridItems">Birthday</p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4">
+        <p class="gridInfo">{{birthday}}</p>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <p class="gridItems">Employment Status</p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4">
+        <p class="gridInfo">{{employee.employmentStatus}}</p>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <p class="gridItems">Hire Date</p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4">
+        <p class="gridInfo">{{hireDate}}</p>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <h2 class="sectionTitle">Addresses</h2>
+    <mat-grid-list cols="5" rowHeight="50px">
+      <mat-grid-tile>
+        <p class="gridItems">Street Address</p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4">
+        <p class="gridInfo">{{employee.streetAddress.addressLine1}}<br>{{employee.streetAddress.city}}, {{employee.streetAddress.state}} {{employee.streetAddress.zip}}</p>
+      </mat-grid-tile>
+      <mat-grid-tile *ngIf="employee.mailingAddress.addressLine1 != null">
+        <p class="gridItems">Mailing Address</p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4" *ngIf="employee.mailingAddress.addressLine1 != null">
+        <p class="gridInfo">{{employee.mailingAddress.addressLine1}}<br>{{employee.mailingAddress.city}}, {{employee.mailingAddress.state}} {{employee.mailingAddress.zip}}</p>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <h2 class="sectionTitle">Contact Info</h2>
+    <mat-grid-list cols="5" rowHeight="40px">
+      <mat-grid-tile>
+        <p class="gridItems" *ngIf="employee.personalEmail != null">Personal Email</p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4" *ngIf="employee.personalEmail != null">
+        <p class="gridInfo">{{employee.personalEmail}}</p>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <p class="gridItems" *ngIf="employee.workEmail != null">Work Email</p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4" *ngIf="employee.workEmail != null">
+        <p class="gridInfo">{{employee.workEmail}}</p>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <p class="gridItems" *ngIf="employee.mobilePhone != null">Mobile Phone</p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4" *ngIf="employee.mobilePhone != null">
+        <p class="gridInfo">{{employee.mobilePhone}}</p>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <p class="gridItems" *ngIf="employee.workPhone != null">Work Phone</p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4" *ngIf="employee.workPhone != null">
+        <p class="gridInfo">{{employee.workPhone}}</p>
+      </mat-grid-tile>
+    </mat-grid-list>
+    
+    <h2 class="sectionTitle">Legal Info</h2>
+    <mat-grid-list cols="5" rowHeight="40px">
+      <mat-grid-tile>
+        <p class="gridItems">Legal Gender</p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4">
+        <p class="gridInfo">{{employee.genderDescription}}</p>
+      </mat-grid-tile>
+      <mat-grid-tile *ngIf="employee.medicareEligible != null">
+        <p class="gridItems">Medicare Eligible</p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4" *ngIf="employee.medicareEligible != null">
+        <p class="gridInfo">{{employee.medicareEligible}}</p>
+      </mat-grid-tile>
+      <mat-grid-tile *ngIf="employee.smoker != null">
+        <p class="gridItems">Smoker</p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4" *ngIf="employee.smoker != null">
+        <p class="gridInfo">{{employee.smoker}}</p>
+      </mat-grid-tile>
+      <mat-grid-tile *ngIf="employee.disabled != null">
+        <p class="gridItems">Disabled</p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4" *ngIf="employee.disabled != null">
+        <p class="gridInfo">{{employee.disabled}}</p>
+      </mat-grid-tile>
+      <mat-grid-tile *ngIf="employee.student != null">
+        <p class="gridItems">Student</p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4" *ngIf="employee.student != null">
+        <p class="gridInfo">{{employee.student}}</p>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card>
+  <button mat-fab color="primary" aria-label="Edit" (click)="openDialog()">
+    <mat-icon color="accent">edit</mat-icon>
+  </button>
+</div>

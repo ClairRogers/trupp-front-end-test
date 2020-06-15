@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { 
+  margin: 0; 
+  letter-spacing: 1pt;
+  font-family: Archivo, "Helvetica Neue", sans-serif;
+}
+
+p {
+  margin: 0;
+  letter-spacing: .5pt;
+  font-size: 12px;
+}
+
+.mat-list-item {
+  font-size: 14px;
+  font-family: Archivo, "Helvetica Neue", sans-serif;
+}
+
+.subheading {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1pt;
+}
+
+.mat-menu-panel {
+  width: 250px;
+}
+
+.mat-icon {
+  color: rgb(102, 102, 102);
+}

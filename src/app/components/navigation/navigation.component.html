@@ -1,0 +1,55 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <div class="header" [matMenuTriggerFor]="menu"><p>Employee Portal</p> <mat-icon>keyboard_arrow_down</mat-icon></div>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Menu Button 1</button>
+      <button mat-menu-item>Menu Button 2</button>
+    </mat-menu>
+    <div class="userHeader">
+      <img src="https://www.zyloware.com/images/Square-Shaped-Face.png" alt="">
+      <h3>{{employee.contactName}}</h3>
+      <p>Northwest National Bank</p>
+    </div>
+    <mat-nav-list>
+      <a mat-list-item>
+        <mat-icon>dashboard</mat-icon> Dashboard
+      </a>
+      <a mat-list-item class="active">
+        <mat-icon>person</mat-icon> Profile
+      </a>
+      <a mat-list-item>
+        <mat-icon>content_paste</mat-icon> Open Enrollment
+      </a>
+      <a mat-list-item>
+        <mat-icon>star</mat-icon> My Benefits
+      </a>
+      <a mat-list-item>
+        <mat-icon>help</mat-icon> Help & Feedback
+      </a>
+      <a mat-list-item>
+        <mat-icon>settings</mat-icon> Account Settings
+      </a>
+      <a mat-list-item>
+        <mat-icon>login</mat-icon> Logout
+      </a>
+    </mat-nav-list>
+ 
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="accent">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Employee Profile</span>
+    </mat-toolbar>
+    <app-employee-page></app-employee-page>
+  </mat-sidenav-content>
+</mat-sidenav-container>
