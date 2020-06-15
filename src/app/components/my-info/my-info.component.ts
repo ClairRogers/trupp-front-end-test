@@ -17,19 +17,21 @@ export class MyInfoComponent implements OnInit {
 
   constructor(public dialog: MatDialog ) {}
 
-  
-
   openDialog() {
     const dialogConfig = new MatDialogConfig();
 
-    dialogConfig.autoFocus = true;
     dialogConfig.width = "50%";
-
     dialogConfig.data = {
       employee: this.employee
   };
 
-    this.dialog.open(EditModalComponent, dialogConfig);
+    const dialogRef = this.dialog.open(EditModalComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result != undefined) {
+        this.employee = result;
+      }
+    });
   }
 
   ngOnInit(): void {

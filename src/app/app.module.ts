@@ -19,6 +19,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
+import { FormsModule } from '@angular/forms'  
+import { ReactiveFormsModule} from '@angular/forms' 
 import { EmployeePageComponent } from './components/employee-page/employee-page.component';
 import { MyInfoComponent } from './components/my-info/my-info.component';
 import { MatSelectModule } from '@angular/material/select';
@@ -50,7 +52,9 @@ import { EditModalComponent } from './components/edit-modal/edit-modal.component
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

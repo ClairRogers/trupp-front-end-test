@@ -12,13 +12,22 @@ export class EditModalComponent implements OnInit {
     {value: 'Street Address'},
     {value: 'Mailing Address'}
   ]
+  public emails = [
+    {value: 'Work'},
+    {value: 'Personal'},
+    {value: 'Other'}
+  ]
+  public phones = [
+    {value: 'Work'},
+    {value: 'Home'},
+    {value: 'Mobile'},
+    {value: 'Other'}
+  ]
+  public genders = ['Female', 'Male'];
   public ssnIsVisible = "password"
-  public employee;
 
-  constructor(private dialogRef: MatDialogRef<EditModalComponent>,
-    @Inject(MAT_DIALOG_DATA) data) { 
-      this.employee = data.employee;
-    }
+  constructor(public dialogRef: MatDialogRef<EditModalComponent>,
+    @Inject(MAT_DIALOG_DATA) public data) {}
 
   changeVisible() {
     if (this.ssnIsVisible == "password") {

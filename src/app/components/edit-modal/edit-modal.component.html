@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>{{employee.contactName}}</h2>
+<h2 mat-dialog-title>{{data.employee.contactName}}</h2>
  <div mat-dialog-content>
   <h3 class="sectionTitle">Basic Info</h3>
   <mat-grid-list cols="12" rowHeight="55px">
@@ -8,14 +8,14 @@
     <mat-grid-tile colspan="10">
       <mat-form-field class="gridInfo">
         <mat-label>Full Name</mat-label>
-        <input matInput>
+        <input [(ngModel)]="data.employee.contactName" matInput>
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile></mat-grid-tile>
     <mat-grid-tile colspan="10">
       <mat-form-field class="gridInfo">
         <mat-label>Preferred Name</mat-label>
-        <input matInput>
+        <input [(ngModel)]="data.employee.preferredName" matInput>
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile></mat-grid-tile>
@@ -25,7 +25,7 @@
     <mat-grid-tile colspan="10">
       <mat-form-field class="gridInfo">
         <mat-label>Social Security Number</mat-label>
-        <input [type]="ssnIsVisible" matInput>
+        <input [type]="ssnIsVisible" [(ngModel)]="data.employee.maskedSocialSecurity" matInput>
         <mat-icon matSuffix (click)="changeVisible()" class="clickable">remove_red_eye</mat-icon>
       </mat-form-field>
     </mat-grid-tile>
@@ -36,7 +36,7 @@
     <mat-grid-tile colspan="10">
       <mat-form-field class="gridInfo">
         <mat-label>Birthday</mat-label>
-        <input type="date" matInput>
+        <input type="datetime" [(ngModel)]="data.employee.dateOfBirth" matInput>
       </mat-form-field>
     </mat-grid-tile>
   </mat-grid-list>
@@ -49,7 +49,7 @@
     <mat-grid-tile colspan="10">
       <mat-form-field class="gridInfo">
         <mat-label>Street Address 1</mat-label>
-        <input matInput>
+        <input [(ngModel)]="data.employee.streetAddress.addressLine1" matInput>
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile>
@@ -58,27 +58,27 @@
     <mat-grid-tile colspan="10">
       <mat-form-field class="gridInfo">
         <mat-label>Street Address 2</mat-label>
-        <input matInput>
+        <input [(ngModel)]="data.employee.streetAddress.addressLine3" matInput>
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile></mat-grid-tile>
     <mat-grid-tile colspan="10">
       <mat-form-field class="gridInfo">
         <mat-label>City</mat-label>
-        <input matInput>
+        <input [(ngModel)]="data.employee.streetAddress.city" matInput>
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile></mat-grid-tile>
     <mat-grid-tile colspan="5">
       <mat-form-field class="gridInfo">
         <mat-label>State</mat-label>
-        <input matInput>
+        <input [(ngModel)]="data.employee.streetAddress.state" matInput>
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile colspan="5">
       <mat-form-field class="gridInfo">
         <mat-label>Zip</mat-label>
-        <input matInput>
+        <input [(ngModel)]="data.employee.streetAddress.zip" matInput>
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile></mat-grid-tile>
@@ -103,15 +103,15 @@
     <mat-grid-tile colspan="5">
       <mat-form-field class="gridInfo">
         <mat-label>Email Address</mat-label>
-        <input type="email" matInput>
+        <input type="email" [(ngModel)]="data.employee.personalEmail" matInput>
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile colspan="5">
       <mat-form-field class="gridInfo">
         <mat-label>Address Type</mat-label>
         <mat-select>
-          <mat-option *ngFor="let address of addresses">
-            {{address.value}}
+          <mat-option *ngFor="let email of emails">
+            {{email.value}}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -125,15 +125,15 @@
     <mat-grid-tile colspan="5">
       <mat-form-field class="gridInfo">
         <mat-label>Phone Number</mat-label>
-        <input type="tel" matInput>
+        <input type="tel" [(ngModel)]="data.employee.mobilePhone" matInput>
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile colspan="5">
       <mat-form-field class="gridInfo">
         <mat-label>Number Type</mat-label>
         <mat-select>
-          <mat-option *ngFor="let address of addresses">
-            {{address.value}}
+          <mat-option *ngFor="let phone of phones">
+            {{phone.value}}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -150,13 +150,10 @@
     </mat-grid-tile>
     <mat-grid-tile colspan="11">
       <div class="gridInfo">
-      <label id="example-radio-group-label">Legal Gender</label>
-      <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
-        <mat-radio-button class="example-radio-button" color="primary">
-          Male
-        </mat-radio-button>
-        <mat-radio-button class="example-radio-button" color="primary">
-          Female
+      <label id="radio-group-label">Legal Gender</label>
+      <mat-radio-group aria-labelledby="radio-group-label" class="radio-group" [(ngModel)]="data.employee.genderDescription">
+        <mat-radio-button class="radio-button" *ngFor="let gender of genders" [value]="gender">
+          {{gender}}
         </mat-radio-button>
       </mat-radio-group>
     </div>
@@ -165,6 +162,6 @@
 </div>
 
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button mat-dialog-close>Save</button>
+  <button mat-button [mat-dialog-close]="data.employee">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.employee" cdkFocusInitial>Save</button>
 </mat-dialog-actions>

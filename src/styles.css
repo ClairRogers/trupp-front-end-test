@@ -18,16 +18,18 @@ p {
   font-family: Archivo, "Helvetica Neue", sans-serif;
 }
 
-.subheading {
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 1pt;
-}
-
 .mat-menu-panel {
   width: 250px;
 }
 
 .mat-icon {
   color: rgb(102, 102, 102);
+}
+
+.mat-radio-checked .mat-radio-outer-circle{
+  border-color: #673ab7 !important;
+}
+
+.mat-radio-checked .mat-radio-inner-circle{
+  background-color: #673ab7 !important;
 }

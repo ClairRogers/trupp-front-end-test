@@ -17,7 +17,7 @@ export class NavigationComponent {
       shareReplay()
     );
 
-    employee = EMPLOYEEDETAILS_MOCK
+    public employee = EMPLOYEEDETAILS_MOCK
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
